@@ -1,0 +1,243 @@
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .program-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .program-card {
+        padding: 1.5rem;
+    }
+
+    .program-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .filter-controls {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .filter-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .program-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .program-card {
+        padding: 1.2rem;
+    }
+
+    .program-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sort-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+
+    .sort-select {
+        width: 100%;
+    }
+
+    .breadcrumb {
+        font-size: 0.9rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .program-card {
+        padding: 1rem;
+    }
+
+    .program-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .program-details {
+        font-size: 0.9rem;
+    }
+
+    .program-features li {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .breadcrumb {
+        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .icon-badge {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.6rem;
+    }
+}
+
+/* Navigation Responsive Styles */
+@media screen and (max-width: 992px) {
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* Footer Responsive Styles */
+@media screen and (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-section {
+        padding: 1rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Hero Section Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .programs-hero {
+        padding: 4rem 0;
+    }
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+}
+
+/* Program Card Responsive Adjustments */
+@media screen and (max-width: 576px) {
+    .program-card {
+        margin: 0.5rem;
+    }
+
+    .program-features {
+        padding-left: 1.2rem;
+    }
+
+    .program-features li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Improve touch targets on mobile */
+@media (hover: none) {
+    .filter-btn,
+    .sort-select,
+    .cta-button,
+    .nav-links a {
+        min-height: 44px;
+    }
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+} 
