@@ -91,6 +91,8 @@
     cursor: pointer;
     padding: 10px;
     z-index: 1002;
+    background: none;
+    border: none;
 }
 
 .mobile-menu-btn i {
@@ -111,7 +113,7 @@
     .nav-links {
         display: none;
         position: fixed;
-        top: 72px; /* Adjust based on your header height */
+        top: 72px;
         left: 0;
         right: 0;
         background: var(--white);
@@ -173,13 +175,9 @@
         padding: 0.8rem 2rem;
         text-align: left;
     }
-
-    .dropdown-content a:hover {
-        background: var(--gray);
-    }
 }
 
 /* Add padding to body to account for fixed header */
 body {
-    padding-top: 72px; /* Adjust based on your header height */
+    padding-top: 72px;
 } 
