@@ -1,9 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu functionality
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    // Wait for navigation to be loaded
+    const checkNavLoaded = setInterval(() => {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileMenuBtn && navLinks) {
+            clearInterval(checkNavLoaded);
+            initializeNavigation(mobileMenuBtn, navLinks);
+        }
+    }, 100);
 
-    if (mobileMenuBtn && navLinks) {
+    function initializeNavigation(mobileMenuBtn, navLinks) {
+        // Mobile menu functionality
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             mobileMenuBtn.classList.toggle('active');
@@ -22,6 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 mobileMenuBtn.classList.remove('active');
+            });
+        });
+
+        // Handle dropdowns on mobile
+        const dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
             });
         });
     }
@@ -48,22 +68,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Handle dropdowns on mobile
-    const dropdowns = document.querySelectorAll('.dropdown');
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        link.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-            }
-        });
-    });
-
     // Handle window resize
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) {
-            mobileMenuBtn.classList.remove('active');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
         }
     });
 
