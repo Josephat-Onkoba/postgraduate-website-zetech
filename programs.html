@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programs - Zetech University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Programs Page Specific Styles */
+        .programs-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .program-section {
+            margin-bottom: 4rem;
+        }
+
+        .program-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .program-details {
+            margin-top: 1rem;
+        }
+
+        .program-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .program-details strong {
+            color: var(--primary-color);
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background-color: #e69a00;
+        }
+
+        .summary-section {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .summary-section p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Filter and Sort Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sort-controls label {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .sort-select {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            min-width: 150px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .sort-select:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(230, 154, 0, 0.2);
+        }
+
+        /* Program Card Animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+
+            .sort-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .sort-select {
+                width: 100%;
+            }
+        }
+
+        .icon-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary-color);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .program-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .category-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .category-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .category-card p {
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .category-link {
+            color: var(--secondary-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-card:hover .category-link i {
+            transform: translateX(5px);
+        }
+
+        .category-link i {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .program-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Programs Hero Section -->
+        <section class="programs-hero">
+            <div class="hero-content">
+                <h1>Postgraduate Programs</h1>
+                <p>Advance your career with our comprehensive postgraduate programs</p>
+            </div>
+        </section>
+
+        <!-- Programs Container -->
+        <div class="programs-container">
+            <!-- Summary Section -->
+            <section class="summary-section">
+                <h2>Program Overview</h2>
+                <p>Zetech University offers two Doctor of Philosophy (PhD) programmes—in Computer Science and in Business Administration & Management—and three Master's programmes: Master of Science in Computer Science, Master of Science in Information Technology, and Master of Business Administration (MBA). These are available via full-time, part-time, and e-learning modes across multiple campuses, with intakes in January, May, and September.</p>
+                <p>Prospective students apply online through the University's SAJILI portal, submitting academic transcripts, proof of fee payment, and other supporting documents.</p>
+            </section>
+
+            <!-- Program Categories -->
+            <div class="program-categories">
+                <a href="phd-programs.html" class="category-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>PhD Programs</h3>
+                    <p>Advance your research career with our doctoral programs</p>
+                    <span class="category-link">View Programs <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="masters-programs.html" class="category-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Master's Programs</h3>
+                    <p>Enhance your expertise with our master's degree programs</p>
+                    <span class="category-link">View Programs <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+
+            <!-- Doctoral Programs Section -->
+            <section class="program-section">
+                <h2>Doctoral Programs</h2>
+                <div class="program-grid">
+                    <div class="program-card" data-category="phd" data-duration="3">
+                        <div class="icon-badge">PhD</div>
+                        <h3>Doctor of Philosophy in Computer Science</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To produce doctoral graduates who are problem solvers and innovative change agents in both academia and industry, capable of conducting advanced research in areas such as Artificial Intelligence, Cyber Security, and Mobile Computing.</p>
+                            <p><strong>Duration:</strong> Three (3) calendar years</p>
+                            <p><strong>Modes & Campuses:</strong> E-Learning, Full-Time, Part-Time at Mang'u Campus</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Master of Science in Computer Science or related field with upper second-class honors (or equivalent)</li>
+                                <li>Master's degree with lower second-class honors plus ≥2 years' relevant work experience</li>
+                                <li>Other qualifications as approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="program-card" data-category="phd" data-duration="3">
+                        <div class="icon-badge">PhD</div>
+                        <h3>Doctor of Philosophy in Business Administration & Management</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To produce doctoral graduates who are innovative change agents in business management and administration, with expertise in areas such as Strategic Management, Finance, and Supply Chain Management.</p>
+                            <p><strong>Duration:</strong> Six (6) semesters (≈3 years)</p>
+                            <p><strong>Modes & Campuses:</strong> E-Learning, Full-Time, Part-Time at Mang'u, Nairobi City, and Thika Road (Ruiru) campuses</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Master's degree with first-class or upper second-class honors, or</li>
+                                <li>Second-class lower division plus ≥2 years' work experience, or</li>
+                                <li>Other qualifications approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Master's Programs Section -->
+            <section class="program-section">
+                <h2>Master's Programs</h2>
+                <div class="program-grid">
+                    <div class="program-card" data-category="masters" data-duration="2">
+                        <div class="icon-badge">MSc</div>
+                        <h3>Master of Science in Computer Science</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To ground students in computational thinking, abstraction, logical reasoning, and implementation of solutions, with specializations in AI, Cyber Security & Computer Forensics, and Computer Networks.</p>
+                            <p><strong>Duration:</strong> Two (2) calendar years</p>
+                            <p><strong>Modes & Campus:</strong> E-Learning, Part-Time at Mang'u Campus</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Bachelor of Science in Computer Science or related field with upper second-class honors (or equivalent)</li>
+                                <li>Second-class lower division plus ≥2 years' relevant experience, or</li>
+                                <li>Other qualifications as approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="program-card" data-category="masters" data-duration="2">
+                        <div class="icon-badge">MSc</div>
+                        <h3>Master of Science in Information Technology</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To produce IT professionals skilled in Software Engineering, Data Science, and Cyber Security & Computer Forensics, capable of leading large-scale projects and managing Big Data and ICT security.</p>
+                            <p><strong>Duration:</strong> Two (2) calendar years</p>
+                            <p><strong>Modes & Campuses:</strong> E-Learning, Part-Time at Mang'u, Thika Road, and Ruiru campuses</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Bachelor of Science in IT or related field with upper second-class honors (or equivalent)</li>
+                                <li>Other qualifications as approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="program-card" data-category="masters" data-duration="2">
+                        <div class="icon-badge">MBA</div>
+                        <h3>Master of Business Administration (MBA)</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To develop competent and innovative leaders who are change-makers in their areas of specialization in management.</p>
+                            <p><strong>Duration:</strong> Typically two (2) years</p>
+                            <p><strong>Modes & Campuses:</strong> E-Learning, Part-Time at Mang'u, Thika Road, and Ruiru campuses</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Bachelor's degree with first-class or upper second-class honors, or</li>
+                                <li>Lower second-class honors plus ≥2 years' work experience or a postgraduate certificate/diploma, and</li>
+                                <li>Other qualifications as approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Add Scroll Progress Bar -->
+        <div class="scroll-progress"></div>
+
+        <!-- Add Back to Top Button -->
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Components Script -->
+    <script src="components/include.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

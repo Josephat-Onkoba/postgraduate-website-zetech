@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Programs - Zetech University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reuse the same styles from programs.html */
+        .programs-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .program-section {
+            margin-bottom: 4rem;
+        }
+
+        .program-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .program-details {
+            margin-top: 1rem;
+        }
+
+        .program-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .program-details strong {
+            color: var(--primary-color);
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background-color: #e69a00;
+        }
+
+        .icon-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary-color);
+            color: var(--white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .breadcrumb {
+            padding: 1rem 5%;
+            background: var(--white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Filter and Sort Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            padding: 1rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .sort-controls label {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .sort-select {
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1rem;
+            min-width: 150px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
+
+        .sort-select:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(230, 154, 0, 0.2);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .filter-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+
+            .sort-controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .sort-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a> &gt; <a href="programs.html">Programs</a> &gt; PhD Programs
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Programs Hero Section -->
+        <section class="programs-hero">
+            <div class="hero-content">
+                <h1>PhD Programs</h1>
+                <p>Advance your research career with our doctoral programs</p>
+            </div>
+        </section>
+
+        <!-- Programs Container -->
+        <div class="programs-container">
+            <!-- Filter and Sort Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All Programs</button>
+                <button class="filter-btn" data-filter="computer-science">Computer Science</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+            </div>
+            
+            <div class="sort-controls">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" class="sort-select">
+                    <option value="name">Name</option>
+                    <option value="duration">Duration</option>
+                </select>
+            </div>
+
+            <!-- Doctoral Programs Section -->
+            <section class="program-section">
+                <h2>Doctoral Programs</h2>
+                <div class="program-grid">
+                    <div class="program-card" data-category="computer-science">
+                        <div class="icon-badge">PhD</div>
+                        <h3>Doctor of Philosophy in Computer Science</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To produce doctoral graduates who are problem solvers and innovative change agents in both academia and industry, capable of conducting advanced research in areas such as Artificial Intelligence, Cyber Security, and Mobile Computing.</p>
+                            <p><strong>Duration:</strong> Three (3) calendar years</p>
+                            <p><strong>Modes & Campuses:</strong> E-Learning, Full-Time, Part-Time at Mang'u Campus</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Master of Science in Computer Science or related field with upper second-class honors (or equivalent)</li>
+                                <li>Master's degree with lower second-class honors plus ≥2 years' relevant work experience</li>
+                                <li>Other qualifications as approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                    <div class="program-card" data-category="business">
+                        <div class="icon-badge">PhD</div>
+                        <h3>Doctor of Philosophy in Business Administration & Management</h3>
+                        <div class="program-details">
+                            <p><strong>Objective:</strong> To produce doctoral graduates who are innovative change agents in business management and administration, with expertise in areas such as Strategic Management, Finance, and Supply Chain Management.</p>
+                            <p><strong>Duration:</strong> Six (6) semesters (≈3 years)</p>
+                            <p><strong>Modes & Campuses:</strong> E-Learning, Full-Time, Part-Time at Mang'u, Nairobi City, and Thika Road (Ruiru) campuses</p>
+                            <p><strong>Admission Requirements:</strong></p>
+                            <ul>
+                                <li>Master's degree with first-class or upper second-class honors, or</li>
+                                <li>Second-class lower division plus ≥2 years' work experience, or</li>
+                                <li>Other qualifications approved by Senate</li>
+                            </ul>
+                            <a href="https://sajili.zetech.ac.ke/" class="apply-btn">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Components Script -->
+    <script src="components/include.js"></script>
+    <script src="script.js"></script>
+    <script src="program-filters.js"></script>
+</body>
+</html> 

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Zetech University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Research Page Specific Styles */
+        .research-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .research-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .research-section {
+            margin-bottom: 4rem;
+        }
+
+        .research-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .iserc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .iserc-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .iserc-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .committee-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--neutral);
+            border-radius: 4px;
+        }
+
+        .member-info {
+            margin-left: 1rem;
+        }
+
+        .member-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .research-opportunities {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .opportunity-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .opportunity-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .opportunity-details {
+            margin-top: 1rem;
+        }
+
+        .opportunity-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        .opportunity-details i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .publication-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+
+        .publication-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .publication-meta {
+            color: var(--neutral);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box p {
+            color: var(--neutral);
+        }
+
+        .apply-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-btn:hover {
+            background-color: #e69a00;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Research Hero Section -->
+        <section class="research-hero">
+            <div class="hero-content">
+                <h1>Research</h1>
+                <p>Advancing knowledge through innovative research and collaboration</p>
+            </div>
+        </section>
+
+        <!-- Research Container -->
+        <div class="research-container">
+            <!-- ISERC Section -->
+            <section id="iserc" class="research-section">
+                <h2>Institutional Scientific and Ethics Review Committee (ISERC)</h2>
+                <div class="iserc-grid">
+                    <div class="iserc-card">
+                        <h3>About ISERC</h3>
+                        <p>The Institutional Scientific and Ethics Review Committee ensures that all research conducted within our institution meets the highest ethical standards and scientific rigor.</p>
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <h3>500+</h3>
+                                <p>Proposals Reviewed</p>
+                            </div>
+                            <div class="stat-box">
+                                <h3>98%</h3>
+                                <p>Approval Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="iserc-card">
+                        <h3>Committee Members</h3>
+                        <div class="committee-member">
+                            <div class="member-info">
+                                <h4>Dr. Jane Smith</h4>
+                                <p>Chairperson</p>
+                            </div>
+                        </div>
+                        <div class="committee-member">
+                            <div class="member-info">
+                                <h4>Prof. John Doe</h4>
+                                <p>Vice Chairperson</p>
+                            </div>
+                        </div>
+                        <div class="committee-member">
+                            <div class="member-info">
+                                <h4>Dr. Sarah Johnson</h4>
+                                <p>Secretary</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research Opportunities Section -->
+            <section id="opportunities" class="research-section">
+                <h2>Research Opportunities</h2>
+                <div class="research-opportunities">
+                    <div class="opportunity-card">
+                        <h3>Research Grants</h3>
+                        <p>Funding opportunities for innovative research projects across various disciplines.</p>
+                        <div class="opportunity-details">
+                            <p><i class="fas fa-money-bill-wave"></i> Up to $50,000 per project</p>
+                            <p><i class="fas fa-clock"></i> Annual application cycle</p>
+                            <p><i class="fas fa-users"></i> Open to all faculty and students</p>
+                        </div>
+                        <a href="#" class="apply-btn">Learn More</a>
+                    </div>
+                    <div class="opportunity-card">
+                        <h3>Research Fellowships</h3>
+                        <p>Postdoctoral and visiting researcher opportunities in cutting-edge research areas.</p>
+                        <div class="opportunity-details">
+                            <p><i class="fas fa-money-bill-wave"></i> Competitive stipend</p>
+                            <p><i class="fas fa-clock"></i> 1-2 year duration</p>
+                            <p><i class="fas fa-flask"></i> Access to state-of-the-art facilities</p>
+                        </div>
+                        <a href="#" class="apply-btn">Learn More</a>
+                    </div>
+                    <div class="opportunity-card">
+                        <h3>Collaborative Projects</h3>
+                        <p>Opportunities to collaborate with industry partners and other institutions.</p>
+                        <div class="opportunity-details">
+                            <p><i class="fas fa-handshake"></i> Industry partnerships</p>
+                            <p><i class="fas fa-globe"></i> International collaboration</p>
+                            <p><i class="fas fa-network-wired"></i> Networking opportunities</p>
+                        </div>
+                        <a href="#" class="apply-btn">Learn More</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="research-section">
+                <h2>Journals & Publications</h2>
+                <div class="publications-grid">
+                    <div class="publication-card">
+                        <h3>Journal of Advanced Research</h3>
+                        <div class="publication-meta">
+                            <p>Quarterly Publication</p>
+                            <p>Impact Factor: 3.5</p>
+                        </div>
+                        <p>Publishing high-quality research across all disciplines.</p>
+                        <a href="#" class="apply-btn">View Journal</a>
+                    </div>
+                    <div class="publication-card">
+                        <h3>Research Briefs</h3>
+                        <div class="publication-meta">
+                            <p>Monthly Publication</p>
+                            <p>Open Access</p>
+                        </div>
+                        <p>Short-form research updates and findings.</p>
+                        <a href="#" class="apply-btn">View Briefs</a>
+                    </div>
+                    <div class="publication-card">
+                        <h3>Conference Proceedings</h3>
+                        <div class="publication-meta">
+                            <p>Annual Publication</p>
+                            <p>Indexed in major databases</p>
+                        </div>
+                        <p>Collection of research presented at our annual conference.</p>
+                        <a href="#" class="apply-btn">View Proceedings</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Components Script -->
+    <script src="components/include.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

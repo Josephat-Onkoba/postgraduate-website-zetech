@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Resources - Zetech University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Student Resources Page Specific Styles */
+        .resources-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .resources-section {
+            margin-bottom: 4rem;
+        }
+
+        .resources-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .resource-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .resource-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .resource-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .resource-list li:before {
+            content: "•";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .service-card {
+            display: flex;
+            align-items: flex-start;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .service-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .support-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .support-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Resources Hero Section -->
+        <section class="resources-hero">
+            <div class="hero-content">
+                <h1>Student Resources</h1>
+                <p>Everything you need to succeed in your academic journey</p>
+            </div>
+        </section>
+
+        <!-- Resources Container -->
+        <div class="resources-container">
+            <!-- Academic Resources Section -->
+            <section id="academic" class="resources-section">
+                <h2>Academic Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Library Services</h3>
+                        <ul class="resource-list">
+                            <li>Digital Library Access</li>
+                            <li>Research Databases</li>
+                            <li>E-books Collection</li>
+                            <li>Interlibrary Loans</li>
+                            <li>Study Spaces</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Learning Resources</h3>
+                        <ul class="resource-list">
+                            <li>Online Learning Platform</li>
+                            <li>Course Materials</li>
+                            <li>Academic Writing Support</li>
+                            <li>Research Tools</li>
+                            <li>Citation Guides</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Academic Support</h3>
+                        <ul class="resource-list">
+                            <li>Tutoring Services</li>
+                            <li>Study Skills Workshops</li>
+                            <li>Academic Advising</li>
+                            <li>Thesis Support</li>
+                            <li>Research Methodology</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Student Services Section -->
+            <section id="services" class="resources-section">
+                <h2>Student Services</h2>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Student ID & Access</h3>
+                        <p>Get your student ID card, access to campus facilities, and manage your student account.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Financial Services</h3>
+                        <p>Information about tuition fees, payment plans, scholarships, and financial aid.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bus"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Transportation</h3>
+                        <p>Campus shuttle services, parking permits, and public transportation information.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Dining Services</h3>
+                        <p>Campus dining options, meal plans, and food service hours.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Support Services Section -->
+            <section id="support" class="resources-section">
+                <h2>Support Services</h2>
+                <div class="support-grid">
+                    <div class="support-card">
+                        <h3>Health Services</h3>
+                        <p>On-campus medical care and health resources</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                            <p><i class="fas fa-envelope"></i> health@postgraduate.edu</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <h3>Counseling Services</h3>
+                        <p>Mental health support and counseling</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                            <p><i class="fas fa-envelope"></i> counseling@postgraduate.edu</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <h3>IT Support</h3>
+                        <p>Technical assistance and computer services</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                            <p><i class="fas fa-envelope"></i> itsupport@postgraduate.edu</p>
+                        </div>
+                    </div>
+                    <div class="support-card">
+                        <h3>Career Services</h3>
+                        <p>Career counseling and job search support</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +254 XXX XXX XXX</p>
+                            <p><i class="fas fa-envelope"></i> careers@postgraduate.edu</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Components Script -->
+    <script src="components/include.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

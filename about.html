@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Postgraduate Studies</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .about-section {
+            margin-bottom: 4rem;
+        }
+
+        .about-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mission-card, .vision-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .mission-card h3, .vision-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .mission-icon, .vision-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .history-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .year {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .leader-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .leader-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: var(--neutral);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-color);
+        }
+
+        .leader-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-card .position {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .achievement-number {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- About Hero Section -->
+        <section class="about-hero">
+            <div class="hero-content">
+                <h1>About Us</h1>
+                <p>Excellence in education, research, and innovation since 1990</p>
+            </div>
+        </section>
+
+        <!-- About Container -->
+        <div class="about-container">
+            <!-- Mission & Vision Section -->
+            <section id="mission" class="about-section">
+                <h2>Mission & Vision</h2>
+                <div class="mission-vision">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3>Our Mission</h3>
+                        <p>To provide high-quality postgraduate education that empowers students to become leaders in their fields, contribute to society, and make a positive impact on the world.</p>
+                    </div>
+                    <div class="vision-card">
+                        <div class="vision-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3>Our Vision</h3>
+                        <p>To be a globally recognized center of excellence in postgraduate education, research, and innovation, producing graduates who are prepared to address complex challenges and drive positive change.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section id="history" class="about-section">
+                <h2>Our History</h2>
+                <div class="history-timeline">
+                    <div class="timeline-item">
+                        <div class="year">1990</div>
+                        <h3>Foundation</h3>
+                        <p>Established as a small postgraduate institution with three programs.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2000</div>
+                        <h3>Expansion</h3>
+                        <p>Expanded to include research centers and additional programs.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2010</div>
+                        <h3>Global Recognition</h3>
+                        <p>Achieved international accreditation and partnerships.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="year">2020</div>
+                        <h3>Digital Transformation</h3>
+                        <p>Launched online learning platforms and digital resources.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Leadership Section -->
+            <section id="leadership" class="about-section">
+                <h2>Leadership Team</h2>
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <div class="leader-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Dr. John Smith</h3>
+                        <div class="position">Vice Chancellor</div>
+                        <p>20+ years of experience in higher education leadership.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Prof. Sarah Johnson</h3>
+                        <div class="position">Dean of Postgraduate Studies</div>
+                        <p>Expert in academic administration and research.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Dr. Michael Brown</h3>
+                        <div class="position">Director of Research</div>
+                        <p>Leading research initiatives and collaborations.</p>
+                    </div>
+                    <div class="leader-card">
+                        <div class="leader-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Dr. Emily Davis</h3>
+                        <div class="position">Director of Student Affairs</div>
+                        <p>Dedicated to student success and well-being.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section id="achievements" class="about-section">
+                <h2>Our Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="achievement-number">5000+</div>
+                        <h3>Graduates</h3>
+                        <p>Successful alumni worldwide</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">50+</div>
+                        <h3>Programs</h3>
+                        <p>Diverse academic offerings</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">100+</div>
+                        <h3>Research Projects</h3>
+                        <p>Ongoing research initiatives</p>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">95%</div>
+                        <h3>Employment Rate</h3>
+                        <p>Graduate employment success</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Components Script -->
+    <script src="components/include.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

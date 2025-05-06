@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - Zetech University</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* News Page Specific Styles */
+        .news-hero {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .news-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .news-card p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #e69a00;
+        }
+
+        .read-more i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Filter and Sort Controls */
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .sort-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .news-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- News Hero Section -->
+        <section class="news-hero">
+            <div class="hero-content">
+                <h1>News & Events</h1>
+                <p>Stay updated with the latest news and upcoming events at Zetech University</p>
+            </div>
+        </section>
+
+        <!-- News Container -->
+        <div class="news-container">
+            <!-- Filter and Sort Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">All News</button>
+                <button class="filter-btn" data-filter="announcement">Announcements</button>
+                <button class="filter-btn" data-filter="event">Events</button>
+                <button class="filter-btn" data-filter="partnership">Partnerships</button>
+            </div>
+            
+            <div class="sort-controls">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" class="sort-select">
+                    <option value="date">Date</option>
+                    <option value="title">Title</option>
+                </select>
+            </div>
+
+            <!-- News Grid -->
+            <div class="news-grid">
+                <!-- PhD Program Launch -->
+                <div class="news-card" data-category="announcement" data-date="2025-04-25">
+                    <div class="news-badge">Announcement</div>
+                    <div class="news-date">April 25, 2025</div>
+                    <h3>New PhD in Business Administration & Management Program Launched</h3>
+                    <p>Zetech University is proud to announce the launch of our new PhD program in Business Administration & Management, offering advanced research opportunities in strategic management, finance, and supply chain management.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Global AI Bootcamp -->
+                <div class="news-card" data-category="event" data-date="2025-03-15">
+                    <div class="news-badge">Event</div>
+                    <div class="news-date">March 15, 2025</div>
+                    <h3>Global AI Bootcamp 2025</h3>
+                    <p>Join us for an intensive AI bootcamp featuring hands-on workshops, expert talks, and networking opportunities with industry leaders in artificial intelligence and machine learning.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Christ University Partnership -->
+                <div class="news-card" data-category="partnership" data-date="2025-02-10">
+                    <div class="news-badge">Partnership</div>
+                    <div class="news-date">February 10, 2025</div>
+                    <h3>Strategic Partnership with Christ University, India</h3>
+                    <p>Zetech University has entered into a strategic partnership with Christ University, India, to enhance research collaboration and student exchange programs between the two institutions.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <!-- CUE Approval -->
+                <div class="news-card" data-category="announcement" data-date="2025-01-05">
+                    <div class="news-badge">Announcement</div>
+                    <div class="news-date">January 5, 2025</div>
+                    <h3>CUE Approves New Postgraduate Programs</h3>
+                    <p>The Commission for University Education (CUE) has approved our new postgraduate programs, including MSc in Computer Science and MSc in Information Technology.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Scroll Progress Bar -->
+        <div class="scroll-progress"></div>
+
+        <!-- Add Back to Top Button -->
+        <div class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Include Components Script -->
+    <script src="components/include.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
